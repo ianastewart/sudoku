@@ -16,6 +16,7 @@ while True:
     _, img = cap.read()
 
     # Processes the image and outputs the image with the solved sudoku
+
     output = sudoku_master(img)
 
     cv2.imshow("input", output)

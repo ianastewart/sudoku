@@ -10,7 +10,7 @@ from sudoku_guessing import Sudoku
 def sudoku_master(img_original):
     # Tries to find the part of the image with the sudoku
     ## corners are top left, top right, bottom left, bottom right
-    _, corners = find_sudoku(img_original, draw_contours=False ,test=False)
+    _, corners = find_sudoku(img_original, draw_contours=True ,test=True)
 
     # If we got a sudoku image
     if corners is not None:
@@ -23,7 +23,7 @@ def sudoku_master(img_original):
         transformation_matrix = np.linalg.pinv(transformation_matrix)
 
         # We crop out each number from the sudoku and create a Sudoku instance
-        sudoku = build_sudoku(img_cropped_sudoku, test=False)
+        sudoku = build_sudoku(img_cropped_sudoku, test=True)
 
         # We pass the image of each case in the sudoku to a neural network to read
         ## NOTE: NUMBER READING THRESHOLD
